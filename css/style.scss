@@ -113,9 +113,20 @@ body {
 }
 
 .button-cross {
+  width: 20px;
+  height: 20px;
   float: right;
   margin: -10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Cross-icon' width='7.656' height='7.53'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23dce0e6;fill-rule:evenodd%7D%3C/style%3E%3C/defs%3E%3Cpath id='Rounded_Rectangle_3' d='M782.035 1026.09a.994.994 0 0 1 0 1.41l-5.535 5.54a1 1 0 0 1-1.414-1.42l5.535-5.53a1 1 0 0 1 1.414 0Z' class='cls-1' data-name='Rounded Rectangle 3' transform='translate(-774.688 -1025.81)'/%3E%3Cpath id='Rounded_Rectangle_3-2' d='M774.965 1026.09a.994.994 0 0 0 0 1.41l5.535 5.54a1 1 0 0 0 1.414-1.42l-5.535-5.53a1 1 0 0 0-1.414 0Z' class='cls-1' data-name='Rounded Rectangle 3' transform='translate(-774.688 -1025.81)'/%3E%3C/svg%3E");
+  background-size: 8px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:hover {
+    background-image: url("data:image/svg+xml,%3Csvg id='Cross-icon' xmlns='http://www.w3.org/2000/svg' width='7.656' height='7.53' fill-rule='evenodd' fill='%23000'%3E%3Cpath data-name='Rounded Rectangle 3' d='M782.035 1026.09a.994.994 0 0 1 0 1.41l-5.535 5.54a1 1 0 0 1-1.414-1.42l5.535-5.53a1 1 0 0 1 1.414 0Z' transform='translate(-774.688 -1025.81)' /%3E%3Cpath data-name='Rounded Rectangle 3' d='M774.965 1026.09a.994.994 0 0 0 0 1.41l5.535 5.54a1 1 0 0 0 1.414-1.42l-5.535-5.53a1 1 0 0 0-1.414 0Z' transform='translate(-774.688 -1025.81)' /%3E%3C/svg%3E");
+  }
 }
+
 
 .button-more {
   width: 115px;
@@ -123,10 +134,15 @@ body {
   margin-top: 25px;
 }
 
+.notes-container {
+  flex-wrap: wrap;
+}
+
 .border-card {
-  max-width: 100%;
+  width: calc((100% / 3) - 30px);
   padding: 15px;
   margin-bottom: 15px;
+  margin-right: 15px;
   background: #ffffff;
 }
 
@@ -216,15 +232,6 @@ body {
   font-size: 14px;
 }
 
-.icon-cross {
-  width: 8px;
-  height: 8px;
-  background-image: url("data:image/svg+xml,%3Csvg id='Cross-icon' xmlns='http://www.w3.org/2000/svg' width='7.656' height='7.53' fill-rule='evenodd' fill='%23ccc'%3E%3Cpath data-name='Rounded Rectangle 3' d='M782.035 1026.09a.994.994 0 0 1 0 1.41l-5.535 5.54a1 1 0 0 1-1.414-1.42l5.535-5.53a1 1 0 0 1 1.414 0Z' transform='translate(-774.688 -1025.81)' /%3E%3Cpath data-name='Rounded Rectangle 3' d='M774.965 1026.09a.994.994 0 0 0 0 1.41l5.535 5.54a1 1 0 0 0 1.414-1.42l-5.535-5.53a1 1 0 0 0-1.414 0Z' transform='translate(-774.688 -1025.81)' /%3E%3C/svg%3E");
-}
-
-.icon-cross:hover {
-  background-image: url("data:image/svg+xml,%3Csvg id='Cross-icon' xmlns='http://www.w3.org/2000/svg' width='7.656' height='7.53' fill-rule='evenodd' fill='%23000'%3E%3Cpath data-name='Rounded Rectangle 3' d='M782.035 1026.09a.994.994 0 0 1 0 1.41l-5.535 5.54a1 1 0 0 1-1.414-1.42l5.535-5.53a1 1 0 0 1 1.414 0Z' transform='translate(-774.688 -1025.81)' /%3E%3Cpath data-name='Rounded Rectangle 3' d='M774.965 1026.09a.994.994 0 0 0 0 1.41l5.535 5.54a1 1 0 0 0 1.414-1.42l-5.535-5.53a1 1 0 0 0-1.414 0Z' transform='translate(-774.688 -1025.81)' /%3E%3C/svg%3E");
-}
 
 .ui-list li {
   position: relative;
