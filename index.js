@@ -23,49 +23,68 @@ popupBlock.addEventListener("click", (event) => {
   event.stopPropagation()
 })
 
-const card = (function(){
-  const input = document.querySelector('input[type="text"].note')
-  const form = document.querySelector('.note-form')
-  const box = document.querySelector('.notes-container')
+const card = {
+  input: document.querySelector('input[type="text"].note'),
+  form: document.querySelector(".note-form"),
+  box: document.querySelector(".notes-container"),
+  cardData: [],
 
-  const init = () => {
-    form.addEventListener('submit', submit)
-    box.addEventListener('click', removeCard)
-  }
+  init() {
+    this.form.addEventListener("submit", this.submit.bind(this))
+    this.box.addEventListener("click", this.removeCard.bind(this))
 
-  const createCard = (text) => {
-    const card = document.createElement('div')
-    const button = document.createElement('button')
-    const textNode = document.createElement('div')
+    if(localStorage.cardData) {
+      this.cardData = JSON.parse(localStorage.cardData)
 
-    card.classList.add('border-card')
-    button.classList.add('button-cross')
-    textNode.classList.add('text-12')
+      this.cardData.forEach(text => {
+        this.createCard(text)
+      })
+    }
+  },
+
+  createCard(text) {
+    const card = document.createElement("div")
+    const button = document.createElement("button")
+    const textNode = document.createElement("div")
+
+    card.classList.add("border-card")
+    button.classList.add("button-cross")
+    textNode.classList.add("text-12")
 
     textNode.innerHTML = text
 
     card.appendChild(button)
     card.appendChild(textNode)
 
-    box.prepend(card)
-  }
+    this.box.prepend(card)
+  },
 
-  const removeCard = (e) => {
-    const isDeleteButton = e.target.classList.contains('button-cross') 
-    
-    if(isDeleteButton) {
-      e.target.parentNode.remove()
+  removeCard(e) {
+    const isDeleteButton = e.target.classList.contains("button-cross")
+
+    if (isDeleteButton) {
+      const card = e.target.parentNode;
+      this.cardData = this.cardData.filter(i => i !== card.textContent)
+      localStorage.cardData = JSON.stringify(newData)
+
+      card.remove()
     }
-  }
+  },
 
-  const submit = (e) => {
+  saveCard(text) {
+    this.cardData.push(text)
+    localStorage.cardData = JSON.stringify(this.cardData)
+  },
+
+  submit(e) {
     e.preventDefault()
-    
-    createCard(input.value)
-  }
 
-  return {
-    init,
-    createCard
+    const value = this.input.value
+    
+    this.createCard(value)
+    this.saveCard(value)
+
   }
-})()
+}
+
+card.init()
